@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notification Test Page</title>
+</head>
+<body>
+<input type="text" id="id"/>
+<button type="button" onclick="connect()">연결</button>
+</body>
+</html>
+<script type="text/javaScript">
+  function connect() {
+    const eventSource = new EventSource('/connect');
+    eventSource.addEventListener("sse", function (event) {
+      console.log(event.data);
+    })
+  }
+</script>
